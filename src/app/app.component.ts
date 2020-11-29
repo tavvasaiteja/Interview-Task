@@ -16,12 +16,16 @@ export class AppComponent implements OnInit{
     this.service.getLaunchSuccessData(success).subscribe((response)=>{
       this.spaceXData = response;
       console.log("response for land_success filter",this.spaceXData);
+    },(err)=>{
+      console.log(err);
     })
   }
   AllFilters(year){
     this.service.getAllFiltersData(year).subscribe((response)=>{
       this.spaceXData = response;
       console.log("repsone for all the filtered data",this.spaceXData);
+    },(err)=>{
+      console.log(err);
     })
 
   }
@@ -29,12 +33,16 @@ export class AppComponent implements OnInit{
     this.service.getLaunchAndLandData(success).subscribe((response)=>{
       this.spaceXData = response;
       console.log("response for land and launch data",this.spaceXData);
+    },(err)=>{
+      console.log(err);
     })
   }
   ngOnInit(){
     this.service.getSpaceXData().subscribe((response)=>{
       this.spaceXData = response;
       console.log("logging the spacexdata",this.spaceXData);
+    },(err)=>{
+      console.log(err);
     });
   }
 }

@@ -16,7 +16,7 @@ export class TaskService{
     }
     getAllFiltersData(year){
         this.launchYear = year;
-        return this.http.get(this.baseUrl+'&launch_success='+this.launchSuccess+'&land_success='+this.landSuccess+"&launch_year="+this.launchYear);
+        return this.http.get(this.baseUrl+"&launch_year="+this.launchYear);
 
     }
     getLaunchSuccessData(launchSuccess){
