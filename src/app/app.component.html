@@ -1,28 +1,28 @@
   <div class="row">
-    <h2 class="heading"> SpaceX Launch Programs</h2>
+    <h2 class="heading" aria-label="SpaceX Launch Programs"> SpaceX Launch Programs</h2>
     <div class="column left">
       <div class="Year">
-        <p class="filter">Filters</p>
-        <p class="launch">Launch Year</p><hr>
-        <button class="yearBtn" *ngFor="let year of Year"(click)="AllFilters(year.year)">{{year.year}}</button>
-        <p class="launch">Successful Launch</p><hr>
-        <button class="yearBtn" (click)="launchSuccess('true')">True</button>
-        <button class="yearBtn"(click)="launchSuccess('false')">False</button>
-        <p class="launch">Successful landing</p><hr>
-        <button class="yearBtn"(click)="landSuccess('true')">True</button>
-        <button class="yearBtn"(click)="landSuccess('false')">False</button>
+        <p class="filter" aria-label="Filters">Filters</p>
+        <p class="launch" aria-label="Launch Year">Launch Year</p><hr>
+        <button class="yearBtn" *ngFor="let year of Year"(click)="yearFilter(year.year)">{{year.year}}</button>
+        <p class="launch" aria-label="Successful Launch">Successful Launch</p><hr>
+        <button class="yearBtn" (click)="launchSuccess('true')" aria-label="True">True</button>
+        <button class="yearBtn"(click)="launchSuccess('false')" aria-label="False">False</button>
+        <p class="launch" aria-label="Successful landing">Successful landing</p><hr>
+        <button class="yearBtn"(click)="landSuccess('true')" aria-label="True">True</button>
+        <button class="yearBtn"(click)="landSuccess('false')" aria-label="False">False</button>
 
       </div>
 
     </div>
     <div class="column right">
       <div class="list" *ngFor="let data of spaceXData">
-        <img src="{{data.links.mission_patch_small}}" class="image">
-        <p class="missionHeading">{{data.mission_name}} # {{ data.flight_number }}</p>
-        <p><span class="remHeading">Mission Ids - </span><span><li *ngFor="let x of data.mission_id">{{x}}</li></span></p>
-        <p><span class="remHeading">Launch Year - </span><span>{{data.launch_year}}</span></p>
-        <p><span class="remHeading">Successful Launch - </span> <span>{{data.launch_success}}</span></p>
-        <p><span class="remHeading"> Successful Landing - </span> <span>{{data.land_success}}</span></p>
+        <img src="{{data.links.mission_patch_small}}" class="image" attr.aria-label ="{{data.links.mission_patch_small}}"> 
+        <p class="missionHeading" attr.aria-label="{{data.mission_name}} # {{ data.flight_number }}">{{data.mission_name}} # {{ data.flight_number }}</p>
+        <p><span class="remHeading">Mission Ids - </span><span><li *ngFor="let x of data.mission_id" attr.aria-label="{{x}}">{{x}}</li></span></p>
+        <p><span class="remHeading" attr.aria-label="{{data.launch_year}}">Launch Year - </span><span>{{data.launch_year}}</span></p>
+        <p><span class="remHeading"attr.aria-label="{{data.launch_success}}">Successful Launch - </span> <span>{{data.launch_success}}</span></p>
+        <p><span class="remHeading" attr.aria-label="Successful Landing"> Successful Landing - </span><span *ngFor ="let x of data.rocket.first_stage.cores">{{x.land_success||'null'}}</span></p>
 
 
       </div>
